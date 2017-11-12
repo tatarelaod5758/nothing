@@ -1,8 +1,8 @@
 <?php
 set_time_limit(0);
-$ipAddress = gethostbyname($_SERVER['REMOTE_ADDR']); 
+$ipAddress = "superpulsa.myddns.me" //gethostbyname($_SERVER['REMOTE_ADDR']); 
 $ipAddressrpt = "103.215.72.169/superpulsa2017/rpt"; //gethostbyname($_SERVER['REMOTE_ADDR']);
-$port = 8884;
+$port = 92;
 if (!isset($_GET['reffID'])){
 	if (!isset($_GET['refid'])){
 		$url = "http://". $ipAddressrpt;
@@ -14,7 +14,7 @@ if (!isset($_GET['reffID'])){
 			$nilai2=urlencode($_GET['message']);
 			$com="refid=". $nilai1 ."&message=". $nilai2;
 		}
-		$url = "http://". $ipAddress .":". $port ."/rpt?".$com;
+		$url = "http://". $ipAddress .":". $port ."/rpt/".$com;
 	}
 }else{
 	if (!isset($_GET['reffID'])){
