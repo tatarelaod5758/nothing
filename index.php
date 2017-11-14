@@ -21,7 +21,7 @@ if (!isset($_GET['reffID'])){
 		$url = "http://". $ipAddressrpt;
 	}else{
 		$nilai1 = urlencode($_GET['reffID']);
-		$url = "http://". $ipAddressrpt ."?reffID=". $nilai1;
+		$url = "http://". $ipAddressrpt ."?refid=". $nilai1;
 	}
 }
 
