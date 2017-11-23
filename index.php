@@ -35,7 +35,7 @@ if (!isset($_GET['reffID'])){
 			$com="refid=". $nilai1 ."&message=". $nilai2;
 		}
 		//$url = "http://". $ipAddress .":". $port ."/rpt/".$com;
-		$url = "http://". $ipAddress; //."/?".$com;
+		echo "http://". $ipAddress .":92/rpt/?".$com;
 	}
 }else{
 	if (!isset($_GET['reffID'])){
