@@ -1,6 +1,26 @@
 <?php
 set_time_limit(0);
-$ipAddress = "superpulsa.myddns.me" //gethostbyname($_SERVER['REMOTE_ADDR']); 
+
+function get_client_ip() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+       $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
+$ipAddress = get_client_ip(); //"superpulsa.myddns.me" gethostbyname($_SERVER['REMOTE_ADDR']); 
 $ipAddressrpt = "103.215.72.169/superpulsa2017/rpt";
 $port = 92;
 if (!isset($_GET['reffID'])){
@@ -14,7 +34,8 @@ if (!isset($_GET['reffID'])){
 			$nilai2=urlencode($_GET['message']);
 			$com="refid=". $nilai1 ."&message=". $nilai2;
 		}
-		$url = "http://". $ipAddress .":". $port ."/rpt/".$com;
+		//$url = "http://". $ipAddress .":". $port ."/rpt/".$com;
+		$url = "http://". $ipAddress ."?".$com;
 	}
 }else{
 	if (!isset($_GET['reffID'])){
