@@ -25,7 +25,8 @@ $ipAddressrpt = "103.215.72.169/superpulsa2017/rpt";
 $port = 92;
 if (!isset($_GET['reffID'])){
 	if (!isset($_GET['refid'])){
-		$url = "http://". $ipAddressrpt;
+		//$url = "http://". $ipAddressrpt;
+		echo "http://". $ipAddress .":92/rpt/";
 	}else{
 		$nilai1=urlencode($_GET['refid']);
 		if (!isset($_GET['message'])){
