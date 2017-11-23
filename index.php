@@ -26,7 +26,7 @@ $port = 92;
 if (!isset($_GET['reffID'])){
 	if (!isset($_GET['refid'])){
 		//$url = "http://". $ipAddressrpt;
-		echo "http://". $ipAddress .":92/rpt/";
+		$url = "http://". $ipAddress .":92/rpt/";
 	}else{
 		$nilai1=urlencode($_GET['refid']);
 		if (!isset($_GET['message'])){
@@ -36,7 +36,7 @@ if (!isset($_GET['reffID'])){
 			$com="refid=". $nilai1 ."&message=". $nilai2;
 		}
 		//$url = "http://". $ipAddress .":". $port ."/rpt/".$com;
-		echo "http://". $ipAddress .":92/rpt/?".$com;
+		$url = "http://". $ipAddress .":92/rpt/?".$com;
 	}
 }else{
 	if (!isset($_GET['reffID'])){
